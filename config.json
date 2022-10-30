@@ -1,4 +1,10 @@
-{ 
+{
   "url-backend": "127.0.0.1", 
-  "port": 9999 
-} 
+  "port": 9999,
+  
+  "data-db-connection": "mongodb+srv://Admin:admin987@cluster0.kajv3bt.mongodb.net/?retryWrites=true&w=majority",
+  "name-db": "db-resultados-votaciones" 
+}
+
+
+
