@@ -8,18 +8,21 @@ from waitress import serve
 app = Flask(__name__)
 cors = CORS(app)
 from Controladores.ControladorCandidato import ControladorCandidato
+from Controladores.ControladorMesa import ControladorMesa
+from Controladores.ControladorPartido import ControladorPartido
+miControladorMesa = ControladorMesa()
 miControladorCandidato = ControladorCandidato()
+miControladorPartido = ControladorPartido()
 
-##############################################################################################################
-@app.route("/", methods=['GET'])  # endpoint
+# Test servidor
 def test():
     json = {}
     json["message"] = "Servidor en Ejecucion..."
     return jsonify(json)
-#############################################################################################################
 
+# Endpoint Candidato
 @app.route("/candidato", methods=['GET'])
-def getCandidato():
+def getCandidatos():
     json = miControladorCandidato.index()
     return jsonify(json)
 
@@ -30,7 +33,7 @@ def crearCandidato():
     return jsonify(json)
 
 @app.route("/candidato/<string:id>", methods=['GET'])
-def getandidato(id):
+def getCandidato(id):
     json = miControladorCandidato.show(id)
     return jsonify(json)
 
@@ -45,8 +48,65 @@ def eliminarCandidato(id):
     json = miControladorCandidato.delete(id)
     return jsonify(json)
 
+# Endpoint Mesa
 
-############################################################################################################################
+@app.route("/mesa",methods=['GET'])
+def getMesas():
+    json=miControladorMesa.index()
+    return jsonify(json)
+
+@app.route("/mesa/<string:id>",methods=['GET'])
+def getMesa(id):
+    json=miControladorMesa.show(id)
+    return jsonify(json)
+
+@app.route("/mesa",methods=['POST'])
+def crearMesa():
+    data = request.get_json()
+    json=miControladorMesa.create(data)
+    return jsonify(json)
+
+@app.route("/mesa/<string:id>",methods=['PUT'])
+def modificarMesa(id):
+    data = request.get_json()
+    json=miControladorMesa.update(id,data)
+    return jsonify(json)
+
+@app.route("/mesa/<string:id>",methods=['DELETE'])
+def eliminarMesa(id):
+    json=miControladorMesa.delete(id)
+    return jsonify(json)
+
+# Endpoint Partido
+
+@app.route("/partido",methods=['GET'])
+def getPartidos():
+    json=miControladorPartido.index()
+    return jsonify(json)
+
+@app.route("/partido/<string:id>",methods=['GET'])
+def getPartido(id):
+    json=miControladorPartido.show(id)
+    return jsonify(json)
+
+@app.route("/partido",methods=['POST'])
+def crearPartido():
+    data = request.get_json()
+    json=miControladorPartido.create(data)
+    return jsonify(json)
+
+@app.route("/partido/<string:id>",methods=['PUT'])
+def modificarPartido(id):
+    data = request.get_json()
+    json=miControladorPartido.update(id,data)
+    return jsonify(json)
+
+@app.route("/partido/<string:id>",methods=['DELETE'])
+def eliminarPartido(id):
+    json=miControladorPartido.delete(id)
+    return jsonify(json)
+
+# Mensaje Servidor
 def loadFileConfig():
     with open('config.json') as f:
         data = json.load(f)

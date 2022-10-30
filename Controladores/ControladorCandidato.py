@@ -20,9 +20,9 @@ class ControladorCandidato():
     def update(self, id, infoCandidato):
         candidatoActual = Candidato(self.candidatoRepo.findById(id))
         candidatoActual.cedula = infoCandidato["cedula"]
+        candidatoActual.numero_resolucion = infoCandidato["numero_resolucion"]
         candidatoActual.nombre = infoCandidato["nombre"]
         candidatoActual.apellido = infoCandidato["apellido"]
-        candidatoActual.numero_resolucion = infoCandidato["numero_resolucion"]
         return self.candidatoRepo.save(candidatoActual)
 
     def delete(self, id):
