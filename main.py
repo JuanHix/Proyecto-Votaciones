@@ -10,9 +10,11 @@ cors = CORS(app)
 from Controladores.ControladorCandidato import ControladorCandidato
 from Controladores.ControladorMesa import ControladorMesa
 from Controladores.ControladorPartido import ControladorPartido
+from Controladores.ControladorResultado import ControladorResultado
 miControladorMesa = ControladorMesa()
 miControladorCandidato = ControladorCandidato()
 miControladorPartido = ControladorPartido()
+miControladorResultado = ControladorResultado()
 
 # Test servidor
 def test():
@@ -104,6 +106,40 @@ def modificarPartido(id):
 @app.route("/partido/<string:id>",methods=['DELETE'])
 def eliminarPartido(id):
     json=miControladorPartido.delete(id)
+    return jsonify(json)
+
+@app.route("/partido/<string:id>/candidato/<string:id_candidato>",methods=['PUT'])
+def asignarCandidatoPartido(id,id_candidato):
+    json=miControladorPartido.asignarCandidato(id,id_candidato)
+    return jsonify(json)
+
+# Endpoint Resultado
+
+@app.route("/resultado",methods=['GET'])
+def getResultados():
+    json=miControladorResultado.index()
+    return jsonify(json)
+
+@app.route("/resultado/<string:id>",methods=['GET'])
+def getResultado(id):
+    json=miControladorResultado.show(id)
+    return jsonify(json)
+
+@app.route("/resultado/candidato/<string:id_candidato>/mesa/<string:id_mesa>",methods=['POST'])
+def crearResultado(id_candidato,id_mesa):
+    data = request.get_json()
+    json=miControladorResultado.create(data,id_candidato,id_mesa)
+    return jsonify(json)
+
+@app.route("/resultado/<string:id_resultado>/candidato/<string:id_candidato>/mesa/<string:id_mesa>",methods=['PUT'])
+def modificarResultado(id_resultado,id_candidato,id_mesa):
+    data = request.get_json()
+    json=miControladorResultado.update(id_resultado,data,id_candidato,id_mesa)
+    return jsonify(json)
+
+@app.route("/resultado/<string:id_resultado>",methods=['DELETE'])
+def eliminarResultado(id_resultado):
+    json=miControladorResultado.delete(id_resultado)
     return jsonify(json)
 
 # Mensaje Servidor

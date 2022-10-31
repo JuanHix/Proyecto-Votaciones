@@ -2,10 +2,11 @@ from Repositorios.CandidatoRepo import CandidatoRepo
 from Modelos.Candidato import Candidato
 
 
+
 class ControladorCandidato():
     def __init__(self):
         self.candidatoRepo = CandidatoRepo()
-
+        
     def index(self):
         return self.candidatoRepo.findAll()
 
@@ -27,3 +28,6 @@ class ControladorCandidato():
 
     def delete(self, id):
         return self.candidatoRepo.delete(id)
+
+
+        
