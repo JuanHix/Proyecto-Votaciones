@@ -57,3 +57,4 @@ class ControladorResultado():
 
     def getMayorCedula(self):
         return self.resultadoRepo.getNumeroCedulaMayorCandidato()
+    

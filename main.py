@@ -1,4 +1,3 @@
-# from crypt import methods
 from flask import Flask, request, Response
 from flask import jsonify
 from flask_cors import CORS
@@ -182,23 +181,22 @@ def eliminarResultado(id_resultado):
     return jsonify(json)
 
 # Buscar los candidatos votados en una mesa
-@app.route("/resultado/mesa/<string:id_mesa>", methods=["GET"])
+@app.route("/resultados/mesa/<string:id_mesa>", methods=["GET"])
 def inscritosMesa(id_mesa):
     json = miControladorResultado.getListarCandidatosMesa(id_mesa)
     return jsonify(json)
 
 # Buscar el candidato en las mesas
-@app.route("/resultado/mesas/<string:id_candidato>", methods=["GET"])
+@app.route("/resultados/mesa/<string:id_candidato>", methods=["GET"])
 def inscritoEnMesas(id_candidato):
     json = miControladorResultado.getListarMesasDeInscritoCandidato(id_candidato)
     return jsonify(json)
 
 # Buscar mayor cédula
-@app.route("/resultado/maxdocument", methods=["GET"])
+@app.route("/resultados/documento", methods=["GET"])
 def getMaxDocument():
     json = miControladorResultado.getMayorCedula()
     return jsonify(json)
-
 
 
 if __name__ == '__main__':
