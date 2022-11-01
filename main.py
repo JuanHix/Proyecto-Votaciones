@@ -2,13 +2,15 @@ from flask import Flask, request, Response
 from flask import jsonify
 from flask_cors import CORS
 
-app = Flask(__name__)
-cors = CORS(app)
-
 from Controladores.ControladorCandidato import ControladorCandidato
 from Controladores.ControladorMesa import ControladorMesa
 from Controladores.ControladorPartido import ControladorPartido
 from Controladores.ControladorResultado import ControladorResultado
+
+app = Flask(__name__)
+cors = CORS(app)
+
+
 
 ##############################
 ##     VARIABLES GLOBALES   ##
