@@ -13,7 +13,7 @@ cors = CORS(app)
 
 
 ##############################
-##     VARIABLES GLOBALES   ##
+##    VARIABLES GLOBALES   ##
 ##############################
 
 miControladorMesa = ControladorMesa()
@@ -22,7 +22,7 @@ miControladorPartido = ControladorPartido()
 miControladorResultado = ControladorResultado()
 
 ####################################
-##    PROBAR EL SERVICIO          ##
+##      PROBAR EL SERVICIO        ##
 ####################################
 @app.route("/", methods=["GET"])
 def test():

@@ -11,8 +11,8 @@ class ResultadoRepo(InterfaceRepositorio[Resultado]):
 
     # Muestra las votaciones por candidato
     def getListadoMesasCandidatoInscrito(self, id_candidato):
-        theQuery = {"candidato.$id": ObjectId(id_candidato)}
-        return self.query(theQuery)
+        theQuery1 = {"candidato.$id": ObjectId(id_candidato)}
+        return self.query(theQuery1)
 
     # Numero mayor de una cédula
     def getNumeroCedulaMayorCandidato(self):

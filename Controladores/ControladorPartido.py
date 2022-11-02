@@ -1,7 +1,5 @@
 from Repositorios.PartidoRepo import PartidoRepo
-from Repositorios.CandidatoRepo import CandidatoRepo
 from Modelos.Partido import Partido
-from Modelos.Candidato import Candidato
 
 class ControladorPartido():
     
