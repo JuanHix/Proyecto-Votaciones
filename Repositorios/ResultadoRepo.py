@@ -18,13 +18,13 @@ class ResultadoRepo(InterfaceRepositorio[Resultado]):
     # Numero mayor de una cédula
     def getNumeroCedulaMayorCandidato(self):
         query1 = {
-            "$group":{
-                "_id": "$candidato",
-                "max": {
-                    "$max": "$cedula"
-                },
-                "doc": {
-                    "$first": "$$ROOT"
+            "$group": {
+                    "_id": "$candidato",
+                    "max": {
+                        "$max": "$cedula"
+                    },
+                    "doc": {
+                        "$first": "$$ROOT"
                 }
             }
         }
@@ -34,10 +34,10 @@ class ResultadoRepo(InterfaceRepositorio[Resultado]):
 
     # Suma de votos mesa
     def getSumaVotosPorMesa(self):
-        query1 = {
+        query2 = {
             "$group": {
                 "_id": "$mesa",
-                "Total votos en todas las mesas": {
+                "Total votos en mesa": {
                     "$sum": 1
                 },
                 "doc": {
@@ -46,6 +46,5 @@ class ResultadoRepo(InterfaceRepositorio[Resultado]):
             }
         }
 
-        pipeline = [query1]
-        return self.queryAggregation(pipeline)
-    
+        pipeline1 = [query2]
+        return self.queryAggregation(pipeline1)
