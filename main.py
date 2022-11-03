@@ -2,6 +2,7 @@ from flask import Flask, request, Response
 from flask import jsonify
 from flask_cors import CORS
 
+
 from Controladores.ControladorCandidato import ControladorCandidato
 from Controladores.ControladorMesa import ControladorMesa
 from Controladores.ControladorPartido import ControladorPartido
@@ -189,7 +190,7 @@ def inscritosMesa(id_mesa):
     return jsonify(json)
 
 # Buscar el candidato en las mesas
-@app.route("/resultados/mesa/<string:id_candidato>", methods=["GET"])
+@app.route("/resultados/mesas/<string:id_candidato>", methods=["GET"])
 def inscritoEnMesas(id_candidato):
     json = miControladorResultado.getListarMesasDeInscritoCandidato(id_candidato)
     return jsonify(json)
@@ -198,6 +199,12 @@ def inscritoEnMesas(id_candidato):
 @app.route("/resultados/documento", methods=["GET"])
 def getMaxDocument():
     json = miControladorResultado.getMayorCedula()
+    return jsonify(json)
+
+# Total de votaciones por mesa.
+@app.route("/resultados/votos", methods=["GET"])
+def getSumaVotos():
+    json = miControladorResultado.getSumaVotosMesa()
     return jsonify(json)
 
 

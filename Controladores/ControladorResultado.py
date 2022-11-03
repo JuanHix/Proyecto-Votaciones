@@ -1,10 +1,11 @@
+from Repositorios.ResultadoRepo import ResultadoRepo
+from Repositorios.CandidatoRepo import CandidatoRepo
+from Repositorios.MesaRepo import MesaRepo
+
 from Modelos.Resultado import Resultado
 from Modelos.Candidato import Candidato
 from Modelos.Mesa import Mesa
 
-from Repositorios.ResultadoRepo import ResultadoRepo
-from Repositorios.CandidatoRepo import CandidatoRepo
-from Repositorios.MesaRepo import MesaRepo
 
 class ControladorResultado():
     
@@ -57,4 +58,8 @@ class ControladorResultado():
 
     def getMayorCedula(self):
         return self.resultadoRepo.getNumeroCedulaMayorCandidato()
+    
+    def getSumaVotosMesa(self):
+        return self.resultadoRepo.getSumaVotosPorMesa()
+    
     

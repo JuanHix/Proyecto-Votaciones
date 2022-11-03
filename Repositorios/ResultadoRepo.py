@@ -2,8 +2,9 @@ from Repositorios.InterfaceRepositorio import InterfaceRepositorio
 from Modelos.Resultado import Resultado
 from bson import ObjectId
 
+
 class ResultadoRepo(InterfaceRepositorio[Resultado]):
-    
+
     # Muestra las votaciones por mesa
     def getListadoCandidatosInscritosMesa(self, id_mesa):
         theQuery = {"mesa.$id": ObjectId(id_mesa)}
@@ -16,7 +17,7 @@ class ResultadoRepo(InterfaceRepositorio[Resultado]):
 
     # Numero mayor de una cédula
     def getNumeroCedulaMayorCandidato(self):
-        query = {
+        query1 = {
             "$group":{
                 "_id": "$candidato",
                 "max": {
@@ -27,8 +28,24 @@ class ResultadoRepo(InterfaceRepositorio[Resultado]):
                 }
             }
         }
-        pipeline = [query]
+
+        pipeline = [query1]
+        return self.queryAggregation(pipeline)
+
+    # Suma de votos mesa
+    def getSumaVotosPorMesa(self):
+        query1 = {
+            "$group": {
+                "_id": "$mesa",
+                "Total votos en todas las mesas": {
+                    "$sum": 1
+                },
+                "doc": {
+                    "$first": "$$ROOT"
+                }
+            }
+        }
+
+        pipeline = [query1]
         return self.queryAggregation(pipeline)
     
-
-       
