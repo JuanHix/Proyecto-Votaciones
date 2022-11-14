@@ -1,13 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bce8f96-7d33-4d6f-9e6e-fc6547a69748" name="Changes" comment="" />
+    <list default="true" id="5bce8f96-7d33-4d6f-9e6e-fc6547a69748" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/AsignarCandidatoPartidoPUT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/CandidatoDELETE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/CandidatoGET.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/CandidatoGETid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/CandidatoPOST.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/CandidatoPUT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/ConsultarVotosPorCandidato.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/ConsultarVotosPorMesa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/DBCandidatoPartido.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/DBCndidatoPrueba.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/DBPartidos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/DBRessultadosPruebas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/DBResultados.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/DBmesa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/Ejecucion servidor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/MesaDELETE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/MesaGET.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/MesaGetid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/MesaPOST.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/MesaPUT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/PartidoDELETE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/PartidoGET.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/PartidoGETid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/PartidoPOST.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/PartidoPUT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/ResultadoGET.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/ResultadoGETid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/ResultadoPOST.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/ResultadoPUT.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Capturas EndPoints/TotalVotosPorMesaId.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Controladores/ControladorCandidato.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Controladores/ControladorMesa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Controladores/ControladorPartido.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Controladores/ControladorResultado.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modelos/AbstractModelo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modelos/Candidato.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modelos/Mesa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modelos/Partido.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Modelos/Resultado.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Repositorios/CandidatoRepo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Repositorios/InterfaceRepositorio.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Repositorios/MesaRepo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Repositorios/PartidoRepo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Repositorios/ResultadoRepo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../main.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="2HBKEOp4BTOOSWzjvwYnQbsbxJq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -16,7 +68,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Programacion/Proyecto Votacion/Proyecto/MainSecurity"
+    "last_opened_file_path": "D:/Programacion/Proyecto Votacion/Proyecto-Votaciones/MainSecurity"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -29,5 +81,16 @@
       <updated>1667752926024</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
