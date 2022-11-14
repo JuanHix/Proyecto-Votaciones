@@ -24,7 +24,6 @@ public class Rol {
     // Getter y Setter de la clase.
     // nos permiten leer y escribir los valores de nuestras variables privadas desde fuera de la clase donde fueron creadas.
 
-
     public String get_id() {
         return _id;
     }
