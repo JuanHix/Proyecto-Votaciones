@@ -18,8 +18,8 @@ import java.security.NoSuchAlgorithmException;
 // representan los modelos, manipulacion de las transacciones con la base de datos.
 
 // Decoradores
-@CrossOrigin          // permite que se lleven acabo transacciones al servidor. desde pc.
-@RestController       // permite definir esta clase como puerta de entrada a servidor, para hacer CRUD
+@CrossOrigin                     // permite que se lleven acabo transacciones al servidor. desde pc.
+@RestController                 // permite definir esta clase como puerta de entrada a servidor, para hacer CRUD
 @RequestMapping("/usuarios")  // permite definir la sub ruta de acceso que utilizará para activar los métodos programados
 
 public class ControladorUsuario {
@@ -28,13 +28,13 @@ public class ControladorUsuario {
     @Autowired
     private RepositorioRol miRepositorioRol;
 
-    // Listar todos los elementos
+    // Funcion Listar todos los elementos
     @GetMapping("")
     public List<Usuario> index() {
         return this.miRepositorioUsuario.findAll();
     }
 
-    // Creacion nuevo Objeto
+    // Funcion Creacion nuevo Objeto
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public Usuario create(@RequestBody Usuario infoUsuario) {
@@ -42,7 +42,7 @@ public class ControladorUsuario {
         return this.miRepositorioUsuario.save(infoUsuario);
     }
 
-    // Listar por Objeto por Id
+    // Funcion mListar por Objeto por Id
     @GetMapping("{id}")
     public Usuario show(@PathVariable String id) {
         Usuario usuarioActual = this.miRepositorioUsuario
@@ -51,7 +51,7 @@ public class ControladorUsuario {
         return usuarioActual;
     }
 
-    // Actualiza objeto por Id
+    // Funcion Actualiza objeto por Id
     @PutMapping("{id}")
     public Usuario update(@PathVariable String id, @RequestBody Usuario infoUsuario) {
         Usuario usuarioActual = this.miRepositorioUsuario
@@ -67,7 +67,7 @@ public class ControladorUsuario {
         }
     }
 
-    // Elimina objeto por Id
+    // Funcion Elimina objeto por Id
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("{id}")
     public void delete(@PathVariable String id) {
@@ -79,7 +79,7 @@ public class ControladorUsuario {
         }
     }
 
-    // Realiza el proceso de cifrado
+    // Funcion Realiza el proceso de cifrado
     public String convertirSHA256(String password) {
         MessageDigest md = null;
         try {

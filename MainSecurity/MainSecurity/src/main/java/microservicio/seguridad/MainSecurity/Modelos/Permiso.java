@@ -4,12 +4,13 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+// Decoradores, Para definir que esta clase sera almacenada en la base de datos.
 @Data
 @Document()
 
-// Clase con atributos
+// Clase con atributos, creacion de tabla en mongo
 public class Permiso {
-    @Id //Campo unico del documento
+    @Id                 //Campo unico del documento
     private String _id;
     private String url;
     private String metodo;

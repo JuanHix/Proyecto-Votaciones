@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document()
 
-// Clase con atributos
+// Clase con atributos, creacion de tabla en mongo
 public class Rol {
     @Id //Campo unico del documento
     private String _id;
