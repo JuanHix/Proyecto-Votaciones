@@ -142,44 +142,44 @@ def deleteMesa(id):
 ####################################
 ##     ENDPOINTS DE PARTIDOS      ##
 ####################################
-@app.route("/partidos", methods=["GET"])
+@app.route("/partido", methods=["GET"])
 def getPartidos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partidos'
+    url = dataConfig["url-backend-votes"]+'/partido'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/partidos", methods=["POST"])
+@app.route("/partido", methods=["POST"])
 def crearPartido():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partidos'
+    url = dataConfig["url-backend-votes"]+'/partido'
     response = requests.post(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/partidos/<string:id>", methods=["GET"])
+@app.route("/partido/<string:id>", methods=["GET"])
 def getPartido(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partidos/'+id
+    url = dataConfig["url-backend-votes"]+'/partido/'+id
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/partidos/<string:id>", methods=["PUT"])
+@app.route("/partido/<string:id>", methods=["PUT"])
 def modificarPartido(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partidos/'+id
+    url = dataConfig["url-backend-votes"]+'/partido/'+id
     response = requests.put(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/partidos/<string:id>", methods=["DELETE"])
+@app.route("/partido/<string:id>", methods=["DELETE"])
 def deletePartido(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partidos/'+id
+    url = dataConfig["url-backend-votes"]+'/partido/'+id
     response = requests.delete(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -187,56 +187,56 @@ def deletePartido(id):
 ####################################
 ##   ENDPOINTS DE CANDIDATOS      ##
 ####################################
-@app.route("/candidatos", methods=["GET"])
+@app.route("/candidato", methods=["GET"])
 def getCandidatos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidatos'
+    url = dataConfig["url-backend-votes"]+'/candidato'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/candidatos", methods=["POST"])
+@app.route("/candidato", methods=["POST"])
 def crearCandidato():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidatos'
+    url = dataConfig["url-backend-votes"]+'/candidato'
     response = requests.post(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json) 
 
-@app.route("/candidatos/<string:id>", methods=["GET"])
+@app.route("/candidato/<string:id>", methods=["GET"])
 def getCandidato(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidatos/'+id
+    url = dataConfig["url-backend-votes"]+'/candidato/'+id
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/candidatos/<string:id>", methods=["PUT"])
+@app.route("/candidato/<string:id>", methods=["PUT"])
 def modificarCandidato(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidatos/'+id
+    url = dataConfig["url-backend-votes"]+'/candidato/'+id
     response = requests.put(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/candidatos/<string:id>", methods=["DELETE"])
+@app.route("/candidato/<string:id>", methods=["DELETE"])
 def deleteCandidato(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidatos/'+id
+    url = dataConfig["url-backend-votes"]+'/candidato/'+id
     response = requests.delete(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/candidatos/<string:id_candidato>/partido/<string:id_partido>", methods=["PUT"])
+@app.route("/candidato/<string:id_candidato>/partido/<string:id_partido>", methods=["PUT"])
 def asignarCandidato(id_candidato, id_partido):
     data = {
         "candidato":{},
         "partido": {}
     }
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+"/candidatos/"+id_candidato+"/partido/"+ id_partido
+    url = dataConfig["url-backend-votes"]+"/candidato/"+id_candidato+"/partido/"+ id_partido
     response = requests.put(url, headers=headers, json= data)
     Json = response.json()
     return jsonify(Json)
@@ -245,44 +245,44 @@ def asignarCandidato(id_candidato, id_partido):
 ####################################
 ##   ENDPOINTS DE RESULTADOS      ##
 ####################################
-@app.route("/resultados", methods=["GET"])
+@app.route("/resultado", methods=["GET"])
 def getResultados():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultados'
+    url = dataConfig["url-backend-votes"]+'/resultado'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/resultados/mesa/<string:id_mesa>/candidato/<string:id_candidato>", methods =["POST"])
+@app.route("/resultado/mesa/<string:id_mesa>/candidato/<string:id_candidato>", methods =["POST"])
 def crearResultado(id_mesa, id_candidato):
     data = {}
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+"/resultados/mesa/"+id_mesa+"/candidato/"+id_candidato
+    url = dataConfig["url-backend-votes"]+"/resultado/mesa/"+id_mesa+"/candidato/"+id_candidato
     response = requests.post(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
 
 
-@app.route("/resultados/<string:id>", methods=["GET"])
+@app.route("/resultado/<string:id>", methods=["GET"])
 def getResultado(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultados/'+id
+    url = dataConfig["url-backend-votes"]+'/resultado/'+id
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/resultados/<string:id_resultado>/mesa/<string:id_mesa>/candidato/<string:id_candidato>", methods=["PUT"])
+@app.route("/resultado/<string:id_resultado>/mesa/<string:id_mesa>/candidato/<string:id_candidato>", methods=["PUT"])
 def modificarResultado(id_resultado, id_mesa, id_candidato):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+"/resultados/"+id_resultado+"/mesa/"+id_mesa+"/candidato/"+id_candidato
+    url = dataConfig["url-backend-votes"]+"/resultado/"+id_resultado+"/mesa/"+id_mesa+"/candidato/"+id_candidato
     response = requests.put(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
 
-@app.route("/resultados/<string:id>", methods=["DELETE"])
+@app.route("/resultado/<string:id>", methods=["DELETE"])
 def deleteResultado(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultados/'+id
+    url = dataConfig["url-backend-votes"]+'/resultado/'+id
     response = requests.delete(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -306,10 +306,19 @@ def votosCandidato(id_candidato):
     return jsonify(Json)
 
 #Conteo de los votos
-@app.route("/resultados/maxdocument", methods=["GET"])
+@app.route("/resultado/maxdocument", methods=["GET"])
 def getConteoVotos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultados/maxdocument'
+    url = dataConfig["url-backend-votes"]+'/resultado/maxdocument'
+    response = requests.get(url, headers=headers)
+    Json = response.json()
+    return jsonify(Json)
+
+#Total votos mesa
+@app.route("/resultados/votos", methods=["GET"])
+def getSumaVotos():
+    headers = {"Content-Type": "application/json; charset=utf-8"}
+    url = dataConfig["url-backend-votes"]+'/resultados/votos'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
