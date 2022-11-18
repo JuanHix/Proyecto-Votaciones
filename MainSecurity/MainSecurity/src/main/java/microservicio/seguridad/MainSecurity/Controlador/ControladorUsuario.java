@@ -42,7 +42,7 @@ public class ControladorUsuario {
         return this.miRepositorioUsuario.save(infoUsuario);
     }
 
-    // Funcion mListar por Objeto por Id
+    // Funcion Listar por Objeto por Id
     @GetMapping("{id}")
     public Usuario show(@PathVariable String id) {
         Usuario usuarioActual = this.miRepositorioUsuario
@@ -118,17 +118,17 @@ public class ControladorUsuario {
     // Validar el ingreso de algún usuario
 
     @PostMapping("/validar")
-    public Usuario validate(@RequestBody Usuario infoUsuario,
-                            final HttpServletResponse response)
-            throws IOException {
+    public Usuario validate(@RequestBody Usuario infoUsuario,final HttpServletResponse response)
+
+    throws IOException {
         Usuario usuarioActual = miRepositorioUsuario.getUserByMail(infoUsuario.getCorreo());
         Usuario usuarioPorSeudonimo = miRepositorioUsuario.getUserBySeudonimo(infoUsuario.getSeudonimo());
-        if (usuarioActual != null && usuarioActual.getContrasena()
+        if(usuarioActual != null && usuarioActual.getContrasena()
                 .equals(convertirSHA256(infoUsuario.getContrasena()))
-                && usuarioPorSeudonimo.getSeudonimo() != null) {
+                && usuarioPorSeudonimo.getSeudonimo() != null){
             usuarioActual.setContrasena((""));
             return usuarioActual;
-        } else {
+        }else{
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
             return null;
         }
