@@ -99,7 +99,7 @@ def before_request_callback():
 @app.route("/mesa", methods=["GET"]) # Ruta con el metodo
 def getMesas():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/mesa'
+    url = dataConfig["url-backend-results"]+'/mesa'
     response = requests.get(url, headers=headers)
     Json = response.json() 
     return jsonify(Json) # llega en diccionario lo cambiamos a Json
@@ -108,7 +108,7 @@ def getMesas():
 def crearMesa():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/mesa'
+    url = dataConfig["url-backend-results"]+'/mesa'
     response = requests.post(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
@@ -116,7 +116,7 @@ def crearMesa():
 @app.route("/mesa/<string:id>", methods=["GET"])
 def getMesa(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/mesa/'+id
+    url = dataConfig["url-backend-results"]+'/mesa/'+id
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -125,7 +125,7 @@ def getMesa(id):
 def modificarMesa(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/mesa/'+id
+    url = dataConfig["url-backend-results"]+'/mesa/'+id
     response = requests.put(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
@@ -133,7 +133,7 @@ def modificarMesa(id):
 @app.route("/mesa/<string:id>", methods=["DELETE"])
 def deleteMesa(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/mesa/'+id
+    url = dataConfig["url-backend-results"]+'/mesa/'+id
     response = requests.delete(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -144,7 +144,7 @@ def deleteMesa(id):
 @app.route("/partido", methods=["GET"])
 def getPartidos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partido'
+    url = dataConfig["url-backend-results"]+'/partido'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -153,7 +153,7 @@ def getPartidos():
 def crearPartido():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partido'
+    url = dataConfig["url-backend-results"]+'/partido'
     response = requests.post(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
@@ -161,7 +161,7 @@ def crearPartido():
 @app.route("/partido/<string:id>", methods=["GET"])
 def getPartido(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partido/'+id
+    url = dataConfig["url-backend-results"]+'/partido/'+id
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -170,7 +170,7 @@ def getPartido(id):
 def modificarPartido(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partido/'+id
+    url = dataConfig["url-backend-results"]+'/partido/'+id
     response = requests.put(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
@@ -178,7 +178,7 @@ def modificarPartido(id):
 @app.route("/partido/<string:id>", methods=["DELETE"])
 def deletePartido(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/partido/'+id
+    url = dataConfig["url-backend-results"]+'/partido/'+id
     response = requests.delete(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -189,7 +189,7 @@ def deletePartido(id):
 @app.route("/candidato", methods=["GET"])
 def getCandidatos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidato'
+    url = dataConfig["url-backend-results"]+'/candidato'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -198,7 +198,7 @@ def getCandidatos():
 def crearCandidato():
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidato'
+    url = dataConfig["url-backend-results"]+'/candidato'
     response = requests.post(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json) 
@@ -206,7 +206,7 @@ def crearCandidato():
 @app.route("/candidato/<string:id>", methods=["GET"])
 def getCandidato(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidato/'+id
+    url = dataConfig["url-backend-results"]+'/candidato/'+id
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -215,7 +215,7 @@ def getCandidato(id):
 def modificarCandidato(id):
     data = request.get_json()
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidato/'+id
+    url = dataConfig["url-backend-results"]+'/candidato/'+id
     response = requests.put(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
@@ -223,7 +223,7 @@ def modificarCandidato(id):
 @app.route("/candidato/<string:id>", methods=["DELETE"])
 def deleteCandidato(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/candidato/'+id
+    url = dataConfig["url-backend-results"]+'/candidato/'+id
     response = requests.delete(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -235,7 +235,7 @@ def asignarCandidato(id_candidato, id_partido):
         "partido": {}
     }
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+"/candidato/"+id_candidato+"/partido/"+ id_partido
+    url = dataConfig["url-backend-results"]+"/candidato/"+id_candidato+"/partido/"+ id_partido
     response = requests.put(url, headers=headers, json= data)
     Json = response.json()
     return jsonify(Json)
@@ -247,7 +247,7 @@ def asignarCandidato(id_candidato, id_partido):
 @app.route("/resultado", methods=["GET"])
 def getResultados():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultado'
+    url = dataConfig["url-backend-results"]+'/resultado'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -256,7 +256,7 @@ def getResultados():
 def crearResultado(id_mesa, id_candidato):
     data = {}
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+"/resultado/mesa/"+id_mesa+"/candidato/"+id_candidato
+    url = dataConfig["url-backend-results"]+"/resultado/mesa/"+id_mesa+"/candidato/"+id_candidato
     response = requests.post(url, headers=headers, json=data)
     Json = response.json()
     return jsonify(Json)
@@ -265,7 +265,7 @@ def crearResultado(id_mesa, id_candidato):
 @app.route("/resultado/<string:id>", methods=["GET"])
 def getResultado(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultado/'+id
+    url = dataConfig["url-backend-results"]+'/resultado/'+id
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -273,7 +273,7 @@ def getResultado(id):
 @app.route("/resultado/<string:id_resultado>/mesa/<string:id_mesa>/candidato/<string:id_candidato>", methods=["PUT"])
 def modificarResultado(id_resultado, id_mesa, id_candidato):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+"/resultado/"+id_resultado+"/mesa/"+id_mesa+"/candidato/"+id_candidato
+    url = dataConfig["url-backend-results"]+"/resultado/"+id_resultado+"/mesa/"+id_mesa+"/candidato/"+id_candidato
     response = requests.put(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -281,7 +281,7 @@ def modificarResultado(id_resultado, id_mesa, id_candidato):
 @app.route("/resultado/<string:id>", methods=["DELETE"])
 def deleteResultado(id):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultado/'+id
+    url = dataConfig["url-backend-results"]+'/resultado/'+id
     response = requests.delete(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -290,7 +290,7 @@ def deleteResultado(id):
 @app.route("/resultados/mesa/<string:id_mesa>", methods=["GET"])
 def votosEnMesa(id_mesa):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultados/mesa/'+id_mesa
+    url = dataConfig["url-backend-results"]+'/resultados/mesa/'+id_mesa
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -299,7 +299,7 @@ def votosEnMesa(id_mesa):
 @app.route("/resultados/mesas/<string:id_candidato>", methods=["GET"])
 def votosCandidato(id_candidato):
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultados/mesas/'+id_candidato
+    url = dataConfig["url-backend-results"]+'/resultados/mesas/'+id_candidato
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -308,7 +308,7 @@ def votosCandidato(id_candidato):
 @app.route("/resultado/maxdocument", methods=["GET"])
 def getConteoVotos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultado/maxdocument'
+    url = dataConfig["url-backend-results"]+'/resultado/maxdocument'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
@@ -317,7 +317,7 @@ def getConteoVotos():
 @app.route("/resultados/votos", methods=["GET"])
 def getSumaVotos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-votes"]+'/resultados/votos'
+    url = dataConfig["url-backend-results"]+'/resultados/votos'
     response = requests.get(url, headers=headers)
     Json = response.json()
     return jsonify(Json)
