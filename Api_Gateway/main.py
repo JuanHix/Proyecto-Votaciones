@@ -9,17 +9,17 @@ import json # Conviete de diccionario a Json y viceversa
 app = Flask(__name__)
 cors = CORS(app)      # Se pasa el Cors a la aplicacion para no generar conflicto con Firewall
 
-######################################
-##   Librerias JWT Seguridad        ##
-######################################
+
+#  Librerias JWT Seguridad        
+
 from flask_jwt_extended import create_access_token, verify_jwt_in_request # Crea token de acceso
 from flask_jwt_extended import get_jwt_identity  # Identidad del Token
 from flask_jwt_extended import jwt_required    
 from flask_jwt_extended import JWTManager # utiliza la aplicacion para darle lo atributos de seguridad
 
-######################################
-##            CREAR TOKEN           ##
-######################################
+
+# Creacion Token Seguridad          
+
 app.config["JWT_SECRET_KEY"] = 'Admin987' 
 jwt = JWTManager(app) # Pasamos la configuracion de JWT a la app
 
@@ -41,9 +41,8 @@ def create_token():
             "Message": "correo o contraseña invalidos. "
         }), 401
 
-######################################
-##            MIDDLEWARE            ##
-######################################
+
+# MIDDLEWARE            
 # Nos permite pasarnos por los Endpoints y hacer consultas que haya autenticado por token.
 
 # Limpiar la url y buscar id cambiar por ?
@@ -94,9 +93,9 @@ def before_request_callback():
                     "message ": "usted no es el usuario o verifiquelo"
                 }), 401
 
-####################################
-##        ENDPOINTS DE MESAS      ##
-####################################
+
+# Endpoint Mesas    
+
 @app.route("/mesa", methods=["GET"]) # Ruta con el metodo
 def getMesas():
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -139,9 +138,9 @@ def deleteMesa(id):
     Json = response.json()
     return jsonify(Json)
 
-####################################
-##     ENDPOINTS DE PARTIDOS      ##
-####################################
+
+# Endpoints Partidos  
+
 @app.route("/partido", methods=["GET"])
 def getPartidos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -184,9 +183,9 @@ def deletePartido(id):
     Json = response.json()
     return jsonify(Json)
 
-####################################
-##   ENDPOINTS DE CANDIDATOS      ##
-####################################
+
+# EndPoints Candidatos      
+
 @app.route("/candidato", methods=["GET"])
 def getCandidatos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -242,9 +241,9 @@ def asignarCandidato(id_candidato, id_partido):
     return jsonify(Json)
 
 
-####################################
-##   ENDPOINTS DE RESULTADOS      ##
-####################################
+
+# EndPoint Resultados  
+
 @app.route("/resultado", methods=["GET"])
 def getResultados():
     headers = {"Content-Type": "application/json; charset=utf-8"}
