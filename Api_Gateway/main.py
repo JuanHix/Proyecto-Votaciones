@@ -53,7 +53,7 @@ def limpiarURL(url):
             url = url.replace(laParte, "?")
     return url
 
-# Si el Id tiene permiso para aceder a la url cpn el metodo.
+# Si el Id tiene permiso para aceder a la url con el metodo.
 def validarPermiso(endPoint, metodo, idRol):
     url = dataConfig["url-backend-security"]+ "/permisos-roles/validar-permiso/rol/"+str(idRol) # Armamos la url 
     tienePermiso= False # no tiene permiso hasta que no se valide
@@ -90,7 +90,7 @@ def before_request_callback():
                 }), 401
         else:
             return jsonify({
-                    "message ": "usted no es el usuario o verifiquelo"
+                    "message ": "Verifique sus credenciales no corresponden los permisos"
                 }), 401
 
 
@@ -286,7 +286,8 @@ def deleteResultado(id):
     Json = response.json()
     return jsonify(Json)
 
-#Mirar los resultados de una mesa en particular
+# Mirar los resultados de una mesa en particular
+
 @app.route("/resultados/mesa/<string:id_mesa>", methods=["GET"])
 def votosEnMesa(id_mesa):
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -295,7 +296,8 @@ def votosEnMesa(id_mesa):
     Json = response.json()
     return jsonify(Json)
 
-#Mirar los votos de un candidato en todas las mesas
+# Mirar los votos de un candidato en todas las mesas
+
 @app.route("/resultados/mesas/<string:id_candidato>", methods=["GET"])
 def votosCandidato(id_candidato):
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -304,7 +306,7 @@ def votosCandidato(id_candidato):
     Json = response.json()
     return jsonify(Json)
 
-#Conteo de los votos
+# Conteo de los votos
 @app.route("/resultado/maxdocument", methods=["GET"])
 def getConteoVotos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -313,7 +315,7 @@ def getConteoVotos():
     Json = response.json()
     return jsonify(Json)
 
-#Total votos mesa
+# Total votos mesa
 @app.route("/resultados/votos", methods=["GET"])
 def getSumaVotos():
     headers = {"Content-Type": "application/json; charset=utf-8"}
@@ -322,18 +324,16 @@ def getSumaVotos():
     Json = response.json()
     return jsonify(Json)
 
-####################################
-##   TEST O PRUEBA DEL SERVICIO   ##
-####################################
+
+# test o prueba del servicio
 @app.route("/", methods=['GET'])          # Endpoint prueba servidor 
 def test():
     Json = {}
     Json["Message"]= "Server Running ..."
     return jsonify(Json)
 
-####################################
-##             CONEXIÓN           ##
-####################################
+
+#  Conexion      
 def loadFileConfig():
     with open('config.json') as f:
         data = json.load(f)
