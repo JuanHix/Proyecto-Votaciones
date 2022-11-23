@@ -18,23 +18,23 @@ from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager # utiliza la aplicacion para darle lo atributos de seguridad
 
 
-# Creacion Token Seguridad          
+# Creacion Token Seguridad  credencial acceso        
 
 app.config["JWT_SECRET_KEY"] = 'Admin987' 
 jwt = JWTManager(app) # Pasamos la configuracion de JWT a la app
 
 @app.route("/login", methods=['POST']) # Ruta para creacion del token
 def create_token():
-    data = request.get_json()
-    headers = {"Content-Type": "application/json; charset=utf-8"}
-    url = dataConfig["url-backend-security"]+"/usuarios/validar"
-    response = requests.post(url, json= data, headers=headers)
-    if response.status_code == 200:
-        user = response.json()
-        expires = datetime.timedelta(seconds=60*60*24)
-        access_token = create_access_token(identity=user,
+    data = request.get_json()  # Respueta de la peticion 
+    headers = {"Content-Type": "application/json; charset=utf-8"} # encabezados de la peticion
+    url = dataConfig["url-backend-security"]+"/usuarios/validar" # Valida en el backend de seguridad si el usuario esta registrado.
+    response = requests.post(url, json= data, headers=headers) # se lleva acaba la peticion
+    if response.status_code == 200:   # respuesta satisfactoria usuario existe en la base de datos
+        user = response.json() # respuesta con datos de usuario en json
+        expires = datetime.timedelta(seconds=60*60*24) # tiempo de expiracion del token
+        access_token = create_access_token(identity=user, # creacion del token
             expires_delta=expires)
-        return jsonify({"token": access_token,
+        return jsonify({"token": access_token, # retorna respuesta del token 
             "user_id": user["_id"]})
     else:
         return jsonify({
@@ -73,7 +73,7 @@ def validarPermiso(endPoint, metodo, idRol):
 
 # Permite encaminar las peticiones con la seguridad
 @app.before_request
-def before_request_callback():
+def before_request_callback():         # validar 
     endPoint = limpiarURL(request.path)
     excludedRoutes = ["/login"] # ignoramos la ruta login 
     if excludedRoutes.__contains__(request.path):
@@ -94,7 +94,7 @@ def before_request_callback():
                 }), 401
 
 
-# Endpoint Mesas    
+# Metodos con ruta   
 
 @app.route("/mesa", methods=["GET"]) # Ruta con el metodo
 def getMesas():
@@ -139,7 +139,7 @@ def deleteMesa(id):
     return jsonify(Json)
 
 
-# Endpoints Partidos  
+# Metodo con ruta Partidos  
 
 @app.route("/partido", methods=["GET"])
 def getPartidos():
@@ -184,7 +184,7 @@ def deletePartido(id):
     return jsonify(Json)
 
 
-# EndPoints Candidatos      
+# metodo con ruta       candidado
 
 @app.route("/candidato", methods=["GET"])
 def getCandidatos():
@@ -242,7 +242,7 @@ def asignarCandidato(id_candidato, id_partido):
 
 
 
-# EndPoint Resultados  
+# metodo con ruta Resultados  
 
 @app.route("/resultado", methods=["GET"])
 def getResultados():
