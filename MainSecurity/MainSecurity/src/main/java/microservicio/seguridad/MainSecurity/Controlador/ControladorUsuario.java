@@ -118,14 +118,13 @@ public class ControladorUsuario {
     // Validar el ingreso de algún usuario
 
     @PostMapping("/validar")
-    public Usuario validate(@RequestBody Usuario infoUsuario,final HttpServletResponse response)
-
-    throws IOException {
-        Usuario usuarioActual = miRepositorioUsuario.getUserByMail(infoUsuario.getCorreo());
-        Usuario usuarioPorSeudonimo = miRepositorioUsuario.getUserBySeudonimo(infoUsuario.getSeudonimo());
+    public Usuario validate(@RequestBody Usuario infoUsuario,
+                            final HttpServletResponse response)
+            throws IOException {
+        Usuario usuarioActual = miRepositorioUsuario
+                .getUserByMail(infoUsuario.getCorreo());
         if(usuarioActual != null && usuarioActual.getContrasena()
-                .equals(convertirSHA256(infoUsuario.getContrasena()))
-                && usuarioPorSeudonimo.getSeudonimo() != null){
+                .equals(convertirSHA256(infoUsuario.getContrasena()))){
             usuarioActual.setContrasena((""));
             return usuarioActual;
         }else{
