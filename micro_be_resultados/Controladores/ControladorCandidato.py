@@ -46,4 +46,3 @@ class ControladorCandidato():
         return self.candidatoRepo.save(candidatoActual)
     
 
-        

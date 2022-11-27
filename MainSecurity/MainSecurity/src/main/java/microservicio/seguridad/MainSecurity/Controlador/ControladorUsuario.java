@@ -121,10 +121,11 @@ public class ControladorUsuario {
     public Usuario validate(@RequestBody Usuario infoUsuario,
                             final HttpServletResponse response)
             throws IOException {
-        Usuario usuarioActual = miRepositorioUsuario
-                .getUserByMail(infoUsuario.getCorreo());
+        Usuario usuarioActual = miRepositorioUsuario.getUserByMail(infoUsuario.getCorreo());
+        Usuario usuarioPorSeudonimo = miRepositorioUsuario.getUserBySeudonimo(infoUsuario.getSeudonimo());
         if(usuarioActual != null && usuarioActual.getContrasena()
-                .equals(convertirSHA256(infoUsuario.getContrasena()))){
+                .equals(convertirSHA256(infoUsuario.getContrasena()))
+                && usuarioPorSeudonimo.getSeudonimo() != null){
             usuarioActual.setContrasena((""));
             return usuarioActual;
         }else{

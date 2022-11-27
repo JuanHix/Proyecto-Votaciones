@@ -184,7 +184,7 @@ def deletePartido(id):
     return jsonify(Json)
 
 
-# metodo con ruta       candidado
+# metodo con ruta candidado
 
 @app.route("/candidato", methods=["GET"])
 def getCandidatos():
