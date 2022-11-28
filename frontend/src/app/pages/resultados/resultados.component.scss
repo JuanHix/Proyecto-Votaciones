@@ -1,31 +1,48 @@
 button{
+  background-color: rgb(133, 158, 164);
   margin: 1vw;
   left: 2%;
-  font-size: 3vw;
+  font-size: 1.5vw;
   height: 70%;
 }
 button.btnMesas{
-  background-color: rgb(164, 151, 133);
+  background-color: rgb(133, 158, 164);
   color: black;
+  font-size: 200%;
 }
 button.btnCandidatos{
-  background-color: rgb(231, 152, 50);
+  background-color: rgb(133, 158, 164);
   color: black;
+  font-size: 200%;
 }
 button.btnPartidos{
-  background-color: rgb(224, 169, 97);
+  background-color: rgb(133, 158, 164);
   color: black;
+  font-size: 200%;
 }
+
+button.btnCadidatos{
+  background-color: rgb(133, 158, 164);
+  color: black;
+  font-size: 200%;
+}
+
 img{
-  width: 50vw;
-  margin-bottom: 2vw;
+  width: 40vw;
+  margin-bottom: 5vw;
 }
 
 mat-card-title{
-  font-size: 4vw;
+  font-size: 3vw;
   margin-bottom: 2vw;
 }
 mat-card-subtitle{
   font-size: 2vw;
-  margin-bottom: 2vw;
+  margin-bottom: 6vw;
+}
+mat-card {
+  width: 50%;
+  left: 24vw;
+  background-image: url("https://images4.alphacoders.com/206/206954.jpg");
+  background-size: 180%;
 }

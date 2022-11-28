@@ -22,4 +22,5 @@ export class ResultadosComponent implements OnInit {
   btnCandidatos(){
     this.router.navigateByUrl('candidatosListar');
   }
+
 }

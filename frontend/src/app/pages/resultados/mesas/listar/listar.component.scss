@@ -5,29 +5,31 @@ img{
 }
 
 mat-card-title{
-  font-size: 4vw;
+  font-size: 2vw;
   margin-bottom: 2vw;
 }
 mat-card-subtitle{
-  font-size: 2vw;
-  margin-bottom: 2vw;
+  font-size: 1vw;
+  margin-bottom: 1vw;
 }
 
 mat-card.card2{
   margin-top: 1vw;
-  background-color: rgb(229, 194, 147);
-  color: black;
+  background-image: url("https://images4.alphacoders.com/206/206954.jpg");
+  color: rgb(250, 249, 249);
   text-align: center;
   left: 10%;
   width: 60%;
+  
 }
 table{
   width: 60vw;
-  font-size: 83%;
+  font-size: 110%;
 }
 button{
   width: 20%;
-  font-size: 83%;
+  font-size: 100%;
   margin: 1vw;
 }
+
 

@@ -1,36 +1,44 @@
-img{
-  width: 40vw;
+img {
+  width: 100%;
 }
-mat-form-field.fill1{
+
+mat-form-field.fill1 {
   width: 50%;
   font-size: 4vw;
   top: -3vw;
   left: 1%;
 }
 
-input{
+input {
+  font-size: 30%;
   width: 48vw;
 }
-mat-card{
+
+mat-card {
   width: 50%;
   left: 24vw;
-  background-color:antiquewhite;
+  background-image: url("https://images4.alphacoders.com/206/206954.jpg");
+  background-size: 180%;
 }
-mat-card-title{
-  color: black;
+
+mat-card-title {
+  color: rgb(244, 243, 248);
   font-size: 3vw;
 }
-mat-card-subtitle{
-  color: rgb(76, 71, 71);
+
+mat-card-subtitle {
+  color: rgb(232, 241, 247);
   font-size: 2.2vw;
 }
-button{
+
+button {
   width: 100%;
   align-items: stretch;
 }
-table{
-  width: 40vw;
-  margin-left: 3vw;
+
+table {
+  margin: 10%;
+  width: 30vw;
+  margin-left: 10vw;
   margin-bottom: -10vw;
 }
-
